@@ -169,11 +169,14 @@ let students = [
 ];
 
 let count = 1;
-for(let studentIndex = 1; studentIndex < students.length; studentIndex++){
+for (let studentIndex = 1; studentIndex < students.length; studentIndex++) {
   // console.log(`student ${count}:`, student);
 
-  for(let studentInfo in students[studentIndex]){
-    console.log(`student ${count}: ${studentInfo}:`, students[studentIndex][studentInfo]);
+  for (let studentInfo in students[studentIndex]) {
+    console.log(
+      `student ${count}: ${studentInfo}:`,
+      students[studentIndex][studentInfo]
+    );
   }
 
   // if(student.isStudent){
