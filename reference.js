@@ -198,63 +198,63 @@ console.log(arr1[0]); // 1
 console.log(arr1.at(-1)); // 5 (last element)
 
 // Adding/removing elements (mutating methods)
-const fruits = ["apple", "banana", "orange"];
-fruits.push("mango"); // Add to end
-console.log(fruits); // ['apple', 'banana', 'orange', 'mango']
+// const fruits = ["apple", "banana", "orange"];
+// fruits.push("mango"); // Add to end
+// console.log(fruits); // ['apple', 'banana', 'orange', 'mango']
 
-fruits.pop(); // Remove from end
-console.log(fruits); // ['apple', 'banana', 'orange']
+// fruits.pop(); // Remove from end
+// console.log(fruits); // ['apple', 'banana', 'orange']
 
-fruits.unshift("strawberry"); // Add to start
-console.log(fruits); // ['strawberry', 'apple', 'banana', 'orange']
+// fruits.unshift("strawberry"); // Add to start
+// console.log(fruits); // ['strawberry', 'apple', 'banana', 'orange']
 
-fruits.shift(); // Remove from start
-console.log(fruits); // ['apple', 'banana', 'orange']
+// fruits.shift(); // Remove from start
+// console.log(fruits); // ['apple', 'banana', 'orange']
 
-fruits.splice(1, 1); // Remove 1 element starting at index 1
-console.log(fruits); // ['apple', 'orange']
+// fruits.splice(1, 1); // Remove 1 element starting at index 1
+// console.log(fruits); // ['apple', 'orange']
 
-fruits.splice(1, 0, "kiwi", "pear"); // Insert elements at index 1
-console.log(fruits); // ['apple', 'kiwi', 'pear', 'orange']
+// fruits.splice(1, 0, "kiwi", "pear"); // Insert elements at index 1
+// console.log(fruits); // ['apple', 'kiwi', 'pear', 'orange']
 
-// Non-mutating methods that return new arrays
-const numbers = [1, 2, 3, 4, 5];
+// // Non-mutating methods that return new arrays
+// const numbers = [1, 2, 3, 4, 5];
 
-// map - transform each element
-const doubled = numbers.map((num) => num * 2);
-console.log(doubled); // [2, 4, 6, 8, 10]
+// // map - transform each element
+// const doubled = numbers.map((num) => num * 2);
+// console.log(doubled); // [2, 4, 6, 8, 10]
 
-// filter - keep elements that pass a test
-const evens = numbers.filter((num) => num % 2 === 0);
-console.log(evens); // [2, 4]
+// // filter - keep elements that pass a test
+// const evens = numbers.filter((num) => num % 2 === 0);
+// console.log(evens); // [2, 4]
 
-// reduce - accumulate a value
-const sum = numbers.reduce((total, num) => total + num, 0);
-console.log(sum); // 15
+// // reduce - accumulate a value
+// const sum = numbers.reduce((total, num) => total + num, 0);
+// console.log(sum); // 15
 
-// find - get first element that passes a test
-const found = numbers.find((num) => num > 3);
-console.log(found); // 4
+// // find - get first element that passes a test
+// const found = numbers.find((num) => num > 3);
+// console.log(found); // 4
 
-// findIndex - get index of first element that passes a test
-const foundIndex = numbers.findIndex((num) => num > 3);
-console.log(foundIndex); // 3
+// // findIndex - get index of first element that passes a test
+// const foundIndex = numbers.findIndex((num) => num > 3);
+// console.log(foundIndex); // 3
 
-// some - test if at least one element passes
-console.log(numbers.some((num) => num > 4)); // true
+// // some - test if at least one element passes
+// console.log(numbers.some((num) => num > 4)); // true
 
-// every - test if all elements pass
-console.log(numbers.every((num) => num < 10)); // true
+// // every - test if all elements pass
+// console.log(numbers.every((num) => num < 10)); // true
 
-// Array iteration
-numbers.forEach((num) => console.log(num)); // 1, 2, 3, 4, 5
+// // Array iteration
+// numbers.forEach((num) => console.log(num)); // 1, 2, 3, 4, 5
 
-// Joining arrays
-const arr5 = [1, 2, 3];
-const arr6 = [4, 5, 6];
-const combined = [...arr5, ...arr6]; // Spread operator
-console.log(combined); // [1, 2, 3, 4, 5, 6]
-console.log(arr5.concat(arr6)); // [1, 2, 3, 4, 5, 6]
+// // Joining arrays
+// const arr5 = [1, 2, 3];
+// const arr6 = [4, 5, 6];
+// const combined = [...arr5, ...arr6]; // Spread operator
+// console.log(combined); // [1, 2, 3, 4, 5, 6]
+// console.log(arr5.concat(arr6)); // [1, 2, 3, 4, 5, 6]
 
 // Finding elements
 console.log(numbers.includes(3)); // true
@@ -266,11 +266,11 @@ console.log(unsorted.sort()); // [1, 2, 4, 5, 8]
 console.log(unsorted.reverse()); // [8, 5, 4, 2, 1]
 
 // Custom sorting with compare function
-const users = [
-  { name: "John", age: 25 },
-  { name: "Jane", age: 20 },
-  { name: "Bob", age: 30 },
-];
+// const users = [
+//   { name: "John", age: 25 },
+//   { name: "Jane", age: 20 },
+//   { name: "Bob", age: 30 },
+// ];
 
 users.sort((a, b) => a.age - b.age); // Sort by age ascending
 console.log(users);
@@ -849,8 +849,8 @@ const mappedBuffer = Buffer.from(mappedArray);
 console.log(mappedBuffer.toString()); // "Ifmmp!xpsme" (each char code incremented)
 
 // Buffer.reduce() (using Array methods)
-const sum = Array.from(buffer2).reduce((total, byte) => total + byte, 0);
-console.log(`Sum of byte values: ${sum}`);
+// const sum = Array.from(buffer2).reduce((total, byte) => total + byte, 0);
+// console.log(`Sum of byte values: ${sum}`);
 
 // Buffer.filter() (using Array methods)
 const filtered = Buffer.from(Array.from(buffer2).filter((byte) => byte > 100));
@@ -889,7 +889,7 @@ console.log(`Is PNG file: ${checkFileSignature(fileBuffer, pngSignature)}`); // 
  */
 
 // map() - transform each element and return new array
-const numbers = [1, 2, 3, 4, 5];
+// const numbers = [1, 2, 3, 4, 5];
 
 // Basic mapping
 const squared = numbers.map((num) => num * num);
@@ -976,8 +976,8 @@ console.log(categoryTotals); // { A: 40, B: 60, C: 50 }
 
 // filter() - create a new array with elements that pass a test
 // Basic filtering
-const evens = numbers.filter((num) => num % 2 === 0);
-console.log(evens); // [2, 4]
+// const evens = numbers.filter((num) => num % 2 === 0);
+// console.log(evens); // [2, 4]
 
 // Object filtering
 const youngUsers = users.filter((user) => user.age < 30);
@@ -1199,7 +1199,7 @@ const descriptor = Object.getOwnPropertyDescriptor(person, "id");
 console.log(descriptor);
 
 // Object getters and setters
-const product = {
+const product2 = {
   _price: 0,
 
   get price() {
