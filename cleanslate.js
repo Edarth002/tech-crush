@@ -50,13 +50,13 @@
 
 // let car = { color: "red", make: "Toyota", model: "Corolla" };
 
-let mrJohn = {
-  child_one: "Muhammed",
-  child_two: "Gideon",
-  child_three: "Rachael",
-  child_four: "Kesibo",
-  child_five: "Dan",
-};
+// let mrJohn = {
+//   child_one: "Muhammed",
+//   child_two: "Gideon",
+//   child_three: "Rachael",
+//   child_four: "Kesibo",
+//   child_five: "Dan",
+// };
 
 // console.log(mrJohn.child_three)
 // console.log(mrJohn['child_three'])
@@ -132,13 +132,13 @@ class Animal {
   }
 }
 
-let dog = new Animal("Dog", "Bark", 4);
-let dogSound = dog.makeSound();
-let dogLegs = dog.numberOfLegs("And it can run");
+// let dog = new Animal("Dog", "Bark", 4);
+// let dogSound = dog.makeSound();
+// let dogLegs = dog.numberOfLegs("And it can run");
 
-let cat = new Animal("Cat", "Meow");
-let catSound = cat.makeSound();
-let catLegs = cat.numberOfLegs();
+// let cat = new Animal("Cat", "Meow");
+// let catSound = cat.makeSound();
+// let catLegs = cat.numberOfLegs();
 
 // let list_of_animals_with_four_legs = [];
 // let list_of_animals_without_four_legs = [];

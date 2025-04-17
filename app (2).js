@@ -1,16 +1,16 @@
 // Array
 
-let fruits = [
-  "oranges",
-  "apples",
-  "mangoes",
-  5,
-  8.9,
-  true,
-  null,
-  [1, true, "hill"],
-  { name: "John", age: 30 },
-];
+// let fruits = [
+//   "oranges",
+//   "apples",
+//   "mangoes",
+//   5,
+//   8.9,
+//   true,
+//   null,
+//   [1, true, "hill"],
+//   { name: "John", age: 30 },
+// ];
 
 // console.log("fruits:", fruits);
 console.log("the very fruit is:", fruits[8]);
@@ -99,20 +99,20 @@ let fruits = [
 console.log("the very fruit is:", fruits[8]);
 
 // objects
-let car = {
-  manufacturer: "Toyota",
-  model: "camry",
-  color: "red",
-  year: 2020,
-  isElectric: false,
-  wheels_year: [2020, 2021, 2022, 2023],
-  owner: {
-    name: "John Doe",
-    age: 30,
-    address: "123 Main St",
-    phone: "555-1234",
-  },
-};
+// let car = {
+//   manufacturer: "Toyota",
+//   model: "camry",
+//   color: "red",
+//   year: 2020,
+//   isElectric: false,
+//   wheels_year: [2020, 2021, 2022, 2023],
+//   owner: {
+//     name: "John Doe",
+//     age: 30,
+//     address: "123 Main St",
+//     phone: "555-1234",
+//   },
+// };
 
 // console.log("car:", car);
 // console.log("what is the car owner info:", car.owner.name)
