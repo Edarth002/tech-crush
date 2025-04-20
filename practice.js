@@ -152,6 +152,23 @@ const germanshephard = new Dogs(
   "Bark"
 );
 
-germanshephard.introduction();
+// germanshephard.introduction();
 
-//NPM
+//closure Function
+
+function counterFunction() {
+  let count = 0;
+
+  return {
+    counter() {
+      count++;
+      console.log("Count is: " + count);
+    },
+  };
+}
+
+let count = counterFunction();
+
+count.counter();
+count.counter();
+count.counter();
