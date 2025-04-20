@@ -1,0 +1,15 @@
+{
+  "name": "my-own-package",
+  "version": "1.0.0",
+  "description": "My first package at Techcrush",
+  "license": "MIT",
+  "author": "Arthur Onyeanusi",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "init"
+  },
+  "dependencies": {
+    "colors": "^1.4.0"
+  }
+}
