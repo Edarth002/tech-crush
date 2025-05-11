@@ -4,8 +4,8 @@
   "description": "My first package at Techcrush",
   "license": "MIT",
   "author": "Arthur Onyeanusi",
-  "type": "commonjs",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "init"
   },
