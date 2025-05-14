@@ -1,6 +1,7 @@
 import express from "express";
 import router from "./aboutroutes.js";
 import multer from "multer";
+import { body, validationResult } from "express-validator";
 
 const app = express();
 const port = "3000";
@@ -79,7 +80,30 @@ app.get("/protected", checkAuth, (req, res, next) => {
   res.send("You are authorized to visit this route");
 });
 
-//Start the server
-app.listen(port, () => {
-  console.log(`Server running at Port ${port}`);
-});
+app
+  .post(
+    "/signup",
+    [
+      body("email")
+        .isEmail()
+        .withMessage("Please provide a valid email address"),
+      body("password")
+        .isLength({ min: 5 })
+        .withMessage("Password must be longer than 4 characters"),
+    ],
+    (req, res) => {
+      const errors = validationResult(req);
+
+      if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+      } else {
+        const { email, password } = req.body;
+        res.send(`Signup Successful with ${email}`);
+      }
+    }
+  )
+
+  //Start the server
+  .app.listen(port, () => {
+    console.log(`Server running at Port ${port}`);
+  });
