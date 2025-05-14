@@ -1,111 +1,85 @@
-// function ageVerification1(age, adultPresent) {
-//   if (age >= 13 || adultPresent) {
-//     console.log("You are permitted to watch this movie");
-//   } else if (age < 13 && !adultPresent) {
-//     console.log(
-//       "You can only watch this movie with your parent or watch our other movies"
-//     );
-//   } else {
-//     console.log("You are not permitted to watch this movie");
-//   }
-// }
+import express from "express";
+import router from "./aboutroutes.js";
+import multer from "multer";
 
-// ageVerification1(10, true);
-// ageVerification1(15, false);
-// ageVerification1(12, false);
-// ageVerification1(5, true);
-
-// function ageVerification2(age, adultPresent) {
-//   switch ((age, adultPresent)) {
-//     case age >= 13 || adultPresent:
-//       console.log("You are allowed to watch this movie");
-//       break;
-
-//     case age < 13 && !adultPresent:
-//       console.log(
-//         "You can only view this movie with your parent or view our other movies"
-//       );
-//       break;
-
-//     default:
-//       console.log("You are not allowed to watch this movie");
-//       break;
-//   }
-// }
-
-// ageVerification2(10, true);
-// ageVerification2(15, false);
-// ageVerification2(12, false);
-// ageVerification2(5, true);
-// function ageVerification1(age, adultPresent) {
-//   if (age >= 13 || adultPresent) {
-//     console.log("You are permitted to watch this movie");
-//   } else if (age < 13 && !adultPresent) {
-//     console.log(
-//       "You can only watch this movie with your parent or watch our other movies"
-//     );
-//   } else {
-//     console.log("You are not permitted to watch this movie");
-//   }
-// }
-
-// ageVerification1(10, true);
-// ageVerification1(15, false);
-// ageVerification1(12, false);
-// ageVerification1(5, true);
-
-// function ageVerification2(age, adultPresent) {
-//   switch ((age, adultPresent)) {
-//     case age >= 13 || adultPresent:
-//       console.log("You are allowed to watch this movie");
-//       break;
-
-//     case age < 13 && !adultPresent:
-//       console.log(
-//         "You can only view this movie with your parent or view our other movies"
-//       );
-//       break;
-
-//     default:
-//       console.log("You are not allowed to watch this movie");
-//       break;
-//   }
-// }
-
-// ageVerification2(10, true);
-// ageVerification2(15, false);
-// ageVerification2(12, false);
-// ageVerification2(5, true);
-
-import http from "http";
-import url from "url";
-
+const app = express();
 const port = "3000";
-const hostname = "127.0.0.1";
 
-const server = http.createServer((req, res) => {
-  const parsedUrl = url.parse(req.url, true);
-
-  switch (parsedUrl.pathname) {
-    case "/":
-      res.setHeader("Content-Type", "text/plain"); //specify response type as plain text
-      res.end("Hello, World!\n"); // send response
-      break;
-    case "/home":
-      res.setHeader("Content-Type", "application/json"); //specify response type as json
-      res.end(JSON.stringify({ message: "Hello there!" })); // send response
-      break;
-    case "/user":
-      res.setHeader("Content-Type", "application/json"); //specify response type as json
-      res.end(JSON.stringify({ name: "John", age: 30 })); // send response
-      break;
-    default:
-      res.statusCode = 404; //specify status codes
-      res.end(JSON.stringify({ error: "404 Not Found" })); // send response
-      break;
-  }
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "./uploads");
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + "-" + file.originalname);
+  },
 });
 
-server.listen(port, () => {
-  console.log("Server is Running");
+const upload = multer({
+  storage: storage,
+  limits: {
+    fileSize: 10 * 1024 * 1024,
+  },
+});
+
+app.use(express.static("public"));
+
+app.use("/upload", upload.single("file"), (req, res) => {
+  res.send(req.file.filename + " Upload Completed");
+});
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+app.post("/submit-form", (req, res) => {
+  console.log(req);
+
+  const { name, email } = req.body;
+
+  res.send(`Form was submitted by ${name} with ${email} Email `);
+});
+
+app.post("/json-data", (req, res) => {
+  console.log(req.body);
+
+  const { userId, message } = req.body;
+
+  res.json({
+    status: "success",
+    userId: userId,
+    message: message,
+  });
+});
+
+app.get("/profile", (req, res) => {
+  const userAgent = req.get("User-Agent");
+
+  console.log(userAgent);
+
+  res.set("Custom-Header", "Hello World");
+
+  res.status(200).send("Headers Handled");
+});
+
+app.use("/about", router);
+
+app.use((req, res, next) => {
+  console.log("Request Method: " + req.method, "Request URL: " + req.url);
+  next();
+});
+
+const checkAuth = (req, res, next) => {
+  if (req.headers["authorization"]) {
+    next();
+  } else {
+    res.status(401).send("Unauthorized");
+  }
+};
+
+app.get("/protected", checkAuth, (req, res, next) => {
+  res.send("You are authorized to visit this route");
+});
+
+//Start the server
+app.listen(port, () => {
+  console.log(`Server running at Port ${port}`);
 });

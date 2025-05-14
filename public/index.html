@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Testing Node Js</title>
-  </head>
-  <body>
-    <div>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi consequatur
-      hic sapiente laborum molestiae? Fuga voluptate rerum et tempora suscipit,
-      exercitationem minus voluptatum nam error sit quasi explicabo voluptatem
-      neque.
-    </div>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <title>File Upload</title>
+</head>
+<body>
+  <h1>Upload a File</h1>
+  <form action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" />
+    <button type="submit">Upload</button>
+  </form>
+</body>
 </html>
