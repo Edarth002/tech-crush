@@ -38,7 +38,10 @@ Each folder is self-contained with its own setup, dependencies, and usage guide 
 
 
 👉 Check out my first backend code-based assignment at:
-[Assignment Project Repository](https://github.com/arthur-calculator)
+[Assignment1 Project Repository](https://github.com/arthur-calculator)
+
+👉 Check out my contribution to a backend group-based code-based assignment at:
+[Assignment2 Project Repository]([https://github.com/arthur-calculator](https://github.com/Ifeoluwayemisi/TC_BT_mini_project_Group_3/tree/statuscode-400))
 
 
 ---
