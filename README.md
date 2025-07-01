@@ -34,7 +34,7 @@ Each folder is self-contained with its own setup, dependencies, and usage guide 
 ## 🔗 Related Projects
 
 👉 Check out my **capstone project**, built using all the knowledge gained here:  
-[Capstone Project Repository](https://github.com/edarth002/your-capstone-repo-name)(Not yet created :))
+[Capstone Project Repository]([https://github.com/Edarth002/petUniverse-backend])
 
 
 👉 Check out my first backend code-based assignment at:
